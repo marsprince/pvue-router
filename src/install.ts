@@ -1,11 +1,10 @@
-import { Iinstall } from "../@types/router";
+import { Iinstall } from "./@types/router";
 import View from "./components/view";
 
 export let _Vue;
 export const install: Iinstall = Vue => {
   // 记录vue
   if (install.installed && _Vue === Vue) return;
-  install.installed = true;
 
   _Vue = Vue;
 
@@ -16,6 +15,7 @@ export const install: Iinstall = Vue => {
         // 注册和初始化
         this._routerRoot = this;
         this._router = this.$options.router;
+        // 在这里执行Init
         this._router.init(this);
         // 这里是实现重新渲染的部分
         Vue.util.defineReactive(this, "_route", this._router.history.current);
@@ -40,3 +40,4 @@ export const install: Iinstall = Vue => {
   // 注册组件
   Vue.component("RouterView", View);
 };
+install.installed = false;

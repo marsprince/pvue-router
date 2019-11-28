@@ -1,17 +1,18 @@
-import History from "./base";
-import VueRouter from "../index";
-import { Location } from "./@types/router";
-import { START } from "../route";
-import { getLocation } from "../location";
+import History from './base';
+import VueRouter from '../index';
+import { Location } from '../@types/router';
+import { START } from '../route';
+import { getLocation } from '../location';
 
 export class HTML5History extends History {
   initLocation: Location;
+
   constructor(router: VueRouter) {
     super(router);
     // 初始的Location
     this.initLocation = getLocation();
     // h5 listen
-    window.addEventListener("popstate", e => {
+    window.addEventListener('popstate', e => {
       const current = this.current;
 
       // Avoiding first `popstate` event dispatched in some browsers but first
@@ -22,5 +23,10 @@ export class HTML5History extends History {
       }
       this.transitionTo(location);
     });
+  }
+
+  getCurrentLocation() {
+    let path = decodeURI(window.location.pathname);
+    return (path || '/') + window.location.search + window.location.hash;
   }
 }

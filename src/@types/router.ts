@@ -12,7 +12,7 @@ export declare class VueRouter {
 }
 
 export interface Iinstall {
-  (): () => void;
+  (Vue: any): void;
   installed: boolean;
 }
 
@@ -22,3 +22,5 @@ export interface Location {
   path?: String;
   hash?: String;
 }
+
+export type RawLocation = string | Location

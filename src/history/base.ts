@@ -1,6 +1,6 @@
 import VueRouter from "../index";
 import { Route, START } from "../route";
-import { Location } from "../@types/router";
+import { Location, RawLocation } from '../@types/router';
 
 // base history class
 export default class History {
@@ -16,8 +16,8 @@ export default class History {
     this.current = START;
   }
 
-  transitionTo(location: Location) {
+  transitionTo(location: RawLocation) {
     // 获得和当前Location相匹配的route
-    const route = this.router.match(location, this.current);
+    const route = this.router.match(location);
   }
 }
