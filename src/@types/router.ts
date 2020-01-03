@@ -15,12 +15,3 @@ export interface Iinstall {
   (Vue: any): void;
   installed: boolean;
 }
-
-// 代表当前的地址
-export interface Location {
-  name?: String;
-  path?: String;
-  hash?: String;
-}
-
-export type RawLocation = string | Location

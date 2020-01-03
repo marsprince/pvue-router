@@ -1,9 +1,10 @@
 import { install } from './install';
 import { HTML5History } from './history/html5';
 import History from './history/base';
-import { RawLocation, RouterOptions } from './@types/router';
+import { RouterOptions } from './@types/router';
 import { Route } from './route';
-import { Matcher } from './matcher';
+import { Matcher } from './util/matcher';
+import Location from './util/location';
 
 export default class VueRouter {
   static install = install;
@@ -22,14 +23,14 @@ export default class VueRouter {
     const { history } = this;
     // 在这里跳走
     if (history instanceof HTML5History) {
-      history.transitionTo(history.getCurrentLocation());
+      history.transitionTo(new Location());
     }
   }
 
   match(
-    location: RawLocation,
+    location: Location,
   ): Route {
     // match符合location条件的route
-
+    return this.matcher.match(location)
   }
 }
