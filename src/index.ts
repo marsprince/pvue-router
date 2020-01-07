@@ -11,6 +11,9 @@ export default class VueRouter {
   history: History;
   options: any;
   matcher: Matcher;
+  apps: Array<any>;
+  // beforeEach
+  beforeHooks: Array<any>;
 
   constructor(options: RouterOptions) {
     this.options = options;
@@ -19,12 +22,19 @@ export default class VueRouter {
     this.matcher = new Matcher(options.routes, this);
   }
 
-  init() {
+  init(app) {
+    this.apps.push(app)
     const { history } = this;
     // 在这里跳走
     if (history instanceof HTML5History) {
       history.transitionTo(new Location());
     }
+    // 注册cb
+    history.registerCb((route: Route)=> {
+      this.apps.forEach(app => {
+        app._route = route
+      })
+    })
   }
 
   match(
@@ -32,5 +42,18 @@ export default class VueRouter {
   ): Route {
     // match符合location条件的route
     return this.matcher.match(location)
+  }
+
+  // all hook register
+  registerHook (list: Array<any>, fn: Function): Function {
+    list.push(fn)
+    return () => {
+      const i = list.indexOf(fn)
+      if (i > -1) list.splice(i, 1)
+    }
+  }
+
+  beforeEach(fn) {
+    return this.registerHook(this.beforeHooks, fn)
   }
 }

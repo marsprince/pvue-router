@@ -1,4 +1,4 @@
-// 函数式组件，没有生命周期和响应式,所有的东西都由第二个对象提供
+// 函数式组件，没有生命周期和响应式,所有的一切的一切都由第二个对象提供
 export default {
   functional: true,
   render(_c, functionalRenderContext) {
