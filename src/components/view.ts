@@ -4,9 +4,10 @@ export default {
   render(_c, functionalRenderContext) {
     const { props, children, parent, data } = functionalRenderContext;
     const h = parent.$createElement;
-    // 关键是确定组件
+    // 关键是从当前的route里解析出组件
     // _router.history.current
     const route = parent.$route;
+    // 这个是缓存
     const cache = parent._routerViewCache || (parent._routerViewCache = {});
     const matched = route.matched;
     const component = cache[name] = matched.components[name];
