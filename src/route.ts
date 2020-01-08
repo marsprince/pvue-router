@@ -1,6 +1,6 @@
 // route
-import Location from './util/location';
-import { RouteRecord } from './util/routeRecord';
+import Location from "./util/location";
+import { RouteRecord } from "./util/routeRecord";
 
 export class Route {
   path: String;
@@ -8,7 +8,7 @@ export class Route {
   matched: RouteRecord;
   constructor(location: Location, record?: RouteRecord) {
     this.path = location.path || "/";
-    this.matched = record
+    this.matched = record;
   }
 }
 // the starting route that represents the initial state

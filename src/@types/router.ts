@@ -6,6 +6,7 @@ export interface RouterOptions {
 export interface RouteConfig {
   path: string;
   component?: any;
+  components?: any;
 }
 export declare class VueRouter {
   constructor(options?: RouterOptions);
