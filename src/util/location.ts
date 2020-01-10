@@ -1,6 +1,6 @@
 export interface LocationConfig {
-  base?: string
-  path?: string
+  base?: string;
+  path?: string;
 }
 
 export default class Location {
@@ -10,8 +10,8 @@ export default class Location {
 
   constructor(config: LocationConfig = {}) {
     const { base, path } = config;
-    this.base = base || '/';
-    this.path = path || this.getLocation();
+    this.base = base || "/";
+    this.path = path || this.base + this.getLocation();
   }
 
   getLocation() {
@@ -20,17 +20,20 @@ export default class Location {
     if (base && path.indexOf(base) === 0) {
       path = path.slice(base.length);
     }
-    return (path || '/') + window.location.search + window.location.hash;
+    return (path || "/") + window.location.search + window.location.hash;
   }
 }
 
-export function normalizeLocation(rawLocation: LocationConfig | string, base?: string): Location {
-  if(typeof rawLocation === 'string') {
+export function normalizeLocation(
+  rawLocation: LocationConfig | string,
+  base?: string
+): Location {
+  if (typeof rawLocation === "string") {
     return new Location({
       path: rawLocation,
       base
-    })
+    });
   } else {
-    return new Location(rawLocation)
+    return new Location(rawLocation);
   }
 }
