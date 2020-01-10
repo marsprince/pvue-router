@@ -66,5 +66,15 @@ export default class VueRouter {
     this.history.push(location);
   }
 
-  go() {}
+  go (n: number) {
+    this.history.go(n)
+  }
+
+  back () {
+    this.go(-1)
+  }
+
+  forward () {
+    this.go(1)
+  }
 }

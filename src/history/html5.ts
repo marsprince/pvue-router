@@ -31,4 +31,8 @@ export class HTML5History extends History {
       pushState(route.fullPath)
     })
   }
+
+  go(n: number) {
+    window.history.go(n)
+  }
 }
