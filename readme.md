@@ -9,3 +9,13 @@
 4.matcher: 只有两个方法,match 和 addRoutes
 
 5.RouteRecord： 根据我们填进去的config生成的记录
+
+TODO:
+
+query support
+
+params support
+
+asyncComponents support
+
+base,name,props support
