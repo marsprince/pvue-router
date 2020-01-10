@@ -19,7 +19,6 @@ export const install: Iinstall = Vue => {
         this._router.init(this);
         // 这里是实现重新渲染的部分
         Vue.util.defineReactive(this, "_route", this._router.history.current);
-        console.log(this);
       } else {
         this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
       }

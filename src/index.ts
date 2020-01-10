@@ -3,7 +3,7 @@ import { HTML5History } from "./history/html5";
 import { RouterOptions } from "./@types/router";
 import { Route } from "./route";
 import { Matcher } from "./util/matcher";
-import Location, { LocationConfig, normalizeLocation } from './util/location';
+import Location, { LocationConfig, normalizeLocation } from "./util/location";
 
 export default class VueRouter {
   static install = install;
@@ -13,14 +13,14 @@ export default class VueRouter {
   apps: Array<any> = [];
   // beforeEach
   beforeHooks: Array<any>;
-  base: string
+  base: string;
 
   constructor(options: RouterOptions) {
     this.options = options;
     this.history = new HTML5History(this);
     // 根据传入的routes，创建matcher
     this.matcher = new Matcher(options.routes, this);
-    this.base = options.base || '/'
+    this.base = options.base || "/";
   }
 
   init(app) {
@@ -39,7 +39,7 @@ export default class VueRouter {
       this.apps.forEach(app => {
         app._route = route;
       });
-    }
+    };
   }
 
   match(location: Location): Route {
@@ -62,11 +62,9 @@ export default class VueRouter {
 
   // push to a location
   push(rawLocation: LocationConfig) {
-    const location = normalizeLocation(rawLocation)
-    this.history.push(location)
+    const location = normalizeLocation(rawLocation);
+    this.history.push(location);
   }
 
-  go() {
-
-  }
+  go() {}
 }
