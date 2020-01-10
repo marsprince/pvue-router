@@ -1,6 +1,7 @@
 // 传入构造函数的options
 export interface RouterOptions {
   routes?: Array<RouteConfig>;
+  base?: string
 }
 // routes
 export interface RouteConfig {

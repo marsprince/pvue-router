@@ -2,6 +2,7 @@ import History from './base';
 import VueRouter from '../index';
 import { START } from '../route';
 import Location from '../util/location';
+import { pushState } from '../util';
 
 export class HTML5History extends History {
   initLocation: Location;
@@ -22,5 +23,12 @@ export class HTML5History extends History {
       }
       this.transitionTo(location);
     });
+  }
+
+  // implement by child class, use pushState
+  push(location: Location) {
+    this.transitionTo(location, (route)=>{
+      pushState(route.fullPath)
+    })
   }
 }

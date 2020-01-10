@@ -21,11 +21,13 @@ export default class History {
     this.current = START;
   }
 
-  transitionTo(location: Location) {
+  transitionTo(location: Location, onComplete?: Function,) {
     // 获得和当前Location相匹配的route
     const route = this.router.match(location);
     this.confirmTransition(route, () => {
       this.updateRoute(route)
+      // 自定义回调，比如changeState
+      onComplete && onComplete(route)
     })
   }
   confirmTransition(route: Route, onComplete) {

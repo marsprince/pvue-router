@@ -2,8 +2,21 @@ import Vue from "vue/dist/vue";
 import VueRouter from "../src";
 Vue.use(VueRouter);
 
-const Foo = { template: "<div>foo</div>" };
-const Bar = { template: "<div>bar</div>" };
+const Foo = {
+  template: "<div @click='onClick'>foo</div>",
+  methods: {
+    onClick() {
+      this.$router.push('/bar')
+    }
+  }
+};
+const Bar = {
+  template: "<div @click='onClick'>bar</div>" ,
+  methods: {
+    onClick() {
+      this.$router.push('/foo')
+    }
+  }};
 const App = {
   template: '<div id="app"><router-view></router-view></div>'
 };

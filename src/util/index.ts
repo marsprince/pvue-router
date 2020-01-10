@@ -1,5 +1,6 @@
 import { RouteConfig } from '../@types/router';
 import { RouteRecord } from './routeRecord';
+import {genStateKey, setStateKey} from './stateKey';
 
 export function createRouteMap(routes: Array<RouteConfig>,
                                pathList: Array<string> = [],
@@ -32,5 +33,14 @@ export function addRouteRecord(pathList, pathMap: Object, nameMap, route: RouteC
     if (!nameMap[name]) {
       nameMap[name] = record
     }
+  }
+}
+
+// push and replace state
+export function pushState(url?: string, replace?: boolean) {
+  if(replace) {
+
+  } else {
+    window.history.pushState({ key: setStateKey(genStateKey()) }, '', url)
   }
 }
