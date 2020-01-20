@@ -1,9 +1,16 @@
+// TODO: query support
+// TODO: params support
+// TODO: asyncComponents support
+// TODO: base support
+// TODO: name support
+// TODO: props support
+
 import Vue from "vue/dist/vue";
 import VueRouter from "../src";
 Vue.use(VueRouter);
 
 const Foo = {
-  template: "<div @click='onClick'>foo</div>",
+  template: "<div @click='onClick'>foo: {{$route.params.name}}</div>",
   methods: {
     onClick() {
       this.$router.push("/bar");
@@ -11,7 +18,7 @@ const Foo = {
   }
 };
 const Bar = {
-  template: "<div @click='onClick'>bar</div>",
+  template: "<div @click='onClick'>bar: {{$route.params.name}}</div>",
   methods: {
     onClick() {
       this.$router.push("/foo");
