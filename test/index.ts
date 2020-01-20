@@ -13,7 +13,12 @@ const Foo = {
   template: "<div @click='onClick'>foo: {{$route.params.name}}</div>",
   methods: {
     onClick() {
-      this.$router.push("/bar");
+      this.$router.push({
+        path: '/foo',
+        params: {
+          name: 'foo'
+        }
+      });
     }
   }
 };
@@ -21,7 +26,12 @@ const Bar = {
   template: "<div @click='onClick'>bar: {{$route.params.name}}</div>",
   methods: {
     onClick() {
-      this.$router.push("/foo");
+      this.$router.push({
+        path: '/bar',
+        params: {
+          name: 'bar'
+        }
+      });
     }
   }
 };

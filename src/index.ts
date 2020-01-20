@@ -1,7 +1,7 @@
 import { install } from "./install";
 import { HTML5History } from "./history/html5";
 import { RouterOptions } from "./@types/router";
-import { Route } from "./route";
+import { Route } from "./util/route";
 import { Matcher } from "./util/matcher";
 import Location, { LocationConfig, normalizeLocation } from "./util/location";
 

@@ -1,6 +1,6 @@
 import History from './base';
 import VueRouter from '../index';
-import { START } from '../route';
+import { START } from '../util/route';
 import Location from '../util/location';
 import { pushState } from '../util';
 

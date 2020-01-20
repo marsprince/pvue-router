@@ -1,5 +1,5 @@
 import VueRouter from "../index";
-import { Route, START } from "../route";
+import { Route, START } from "../util/route";
 import Location from "../util/location";
 import { runQueue } from "../util/queue";
 

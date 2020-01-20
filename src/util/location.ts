@@ -1,17 +1,19 @@
 export interface LocationConfig {
   base?: string;
   path?: string;
+  params?: object
 }
 
 export default class Location {
   public base: string;
   public path: string;
-  public params: any;
+  public params: object;
 
   constructor(config: LocationConfig = {}) {
     const { base, path } = config;
     this.base = base || "/";
     this.path = path || this.base + this.getLocation();
+    this.params = config.params || {}
   }
 
   getLocation() {

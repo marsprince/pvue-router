@@ -1,7 +1,7 @@
 import { RouteConfig, VueRouter } from "../@types/router";
 import { createRouteMap } from "./index";
 import Location from "./location";
-import { Route } from "../route";
+import { Route } from "./route";
 
 // matcher 只有两个方法  match,addRoutes
 export class Matcher {
