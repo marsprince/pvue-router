@@ -1,8 +1,8 @@
-import History from './base';
-import VueRouter from '../index';
-import { START } from '../util/route';
-import Location from '../util/location';
-import { pushState } from '../util';
+import History from "./base";
+import VueRouter from "../index";
+import { START } from "../util/route";
+import Location from "../util/location";
+import { pushState } from "../util";
 
 export class HTML5History extends History {
   initLocation: Location;
@@ -12,7 +12,7 @@ export class HTML5History extends History {
     // 初始的Location
     this.initLocation = new Location();
     // h5 listen
-    window.addEventListener('popstate', e => {
+    window.addEventListener("popstate", e => {
       const current = this.current;
 
       // Avoiding first `popstate` event dispatched in some browsers but first
@@ -27,12 +27,12 @@ export class HTML5History extends History {
 
   // implement by child class, use pushState
   push(location: Location) {
-    this.transitionTo(location, (route)=>{
-      pushState(route.fullPath)
-    })
+    this.transitionTo(location, route => {
+      pushState(route.fullPath);
+    });
   }
 
   go(n: number) {
-    window.history.go(n)
+    window.history.go(n);
   }
 }

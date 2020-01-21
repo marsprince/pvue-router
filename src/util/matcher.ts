@@ -25,7 +25,6 @@ export class Matcher {
     const { pathList, pathMap } = this;
     // 格式化移出
     if (location.path) {
-      location.params = {};
       // 循环所有path
       for (let i = 0; i < pathList.length; i++) {
         const path = pathList[i];

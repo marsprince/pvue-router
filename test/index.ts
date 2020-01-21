@@ -14,9 +14,9 @@ const Foo = {
   methods: {
     onClick() {
       this.$router.push({
-        path: '/foo',
+        path: "/bar",
         params: {
-          name: 'foo'
+          name: "bar"
         }
       });
     }
@@ -27,9 +27,9 @@ const Bar = {
   methods: {
     onClick() {
       this.$router.push({
-        path: '/bar',
+        path: "/foo",
         params: {
-          name: 'bar'
+          name: "foo"
         }
       });
     }
