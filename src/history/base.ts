@@ -1,6 +1,6 @@
 import VueRouter from "../index";
 import { Route, START } from "../util/route";
-import Location from "../util/location";
+import Location, { normalizeLocation } from "../util/location";
 import { runQueue } from "../util/queue";
 
 // base history class
@@ -23,6 +23,7 @@ export default class History {
 
   transitionTo(location: Location, onComplete?: Function) {
     // 获得和当前Location相匹配的route
+    location = normalizeLocation(location);
     const route = this.router.match(location);
     this.confirmTransition(route, () => {
       this.updateRoute(route);
