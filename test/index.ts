@@ -1,5 +1,4 @@
 // TODO: query support
-// TODO: params support
 // TODO: asyncComponents support
 // TODO: base support
 // TODO: name support
